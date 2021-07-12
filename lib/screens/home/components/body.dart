@@ -14,89 +14,10 @@ class Body extends StatelessWidget {
             padding: EdgeInsets.all(kDefaltPadding),
             child: Row(
               children: <Widget>[
-                TextButton(
-                  onPressed: () {},
-                  child: Stack(
-                    alignment: Alignment(0, -.7),
-                    children: <Widget>[
-                      Container(
-                        height: 103,
-                        width: 67,
-                        decoration: BoxDecoration(
-                            color: Color(0xFFED704B),
-                            borderRadius: BorderRadius.circular(29),
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Color(0x1A000000),
-                                  blurRadius: 50,
-                                  offset: Offset(4, 8))
-                            ]),
-                      ),
-                      Container(
-                          height: 57,
-                          width: 57,
-                          decoration: BoxDecoration(
-                              color: Color(0xFFFFFFFF),
-                              borderRadius: BorderRadius.circular(29))),
-                      Container(
-                        height: 44,
-                        width: 44,
-                        child: Image(
-                            image: AssetImage("assets/icons/fastfood.png")),
-                      ),
-                      Positioned(
-                        top: 65,
-                        child: Text("อาหาร",
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white)),
-                      )
-                    ],
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  style: ButtonStyle(),
-                  child: Stack(
-                    alignment: Alignment(0, -.7),
-                    children: <Widget>[
-                      Container(
-                        height: 103,
-                        width: 67,
-                        decoration: BoxDecoration(
-                            color: Color(0xFFFFFFFF),
-                            borderRadius: BorderRadius.circular(29),
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Color(0x1A000000),
-                                  blurRadius: 50,
-                                  offset: Offset(4, 8))
-                            ]),
-                      ),
-                      Container(
-                          height: 57,
-                          width: 57,
-                          decoration: BoxDecoration(
-                              color: Color(0xFFFFFFFF),
-                              borderRadius: BorderRadius.circular(29))),
-                      Container(
-                        height: 44,
-                        width: 44,
-                        child: Image(
-                            image: AssetImage("assets/icons/shoppingicon.png")),
-                      ),
-                      Positioned(
-                        top: 65,
-                        child: Text("ของใช้",
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black)),
-                      )
-                    ],
-                  ),
-                ),
+                BuildActiveMenu(
+                    image: "assets/icons/fastfood.png", name: "อาหาร"),
+                BuildNonActiveMenu(
+                    image: "assets/icons/shoppingicon.png", name: "ของใช้"),
               ],
             ),
           )
@@ -137,6 +58,110 @@ class Body extends StatelessWidget {
           Text(
             "วันนี้ทานอะไรดี ?",
             style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class BuildActiveMenu extends StatelessWidget {
+  const BuildActiveMenu({
+    Key? key,
+    required this.image,
+    required this.name,
+  }) : super(key: key);
+  final String image, name;
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: () {},
+      child: Stack(
+        alignment: Alignment(0, -.7),
+        children: <Widget>[
+          Container(
+            height: 103,
+            width: 67,
+            decoration: BoxDecoration(
+                color: Color(0xFFED704B),
+                borderRadius: BorderRadius.circular(29),
+                boxShadow: [
+                  BoxShadow(
+                      color: Color(0x1A000000),
+                      blurRadius: 50,
+                      offset: Offset(4, 8))
+                ]),
+          ),
+          Container(
+              height: 57,
+              width: 57,
+              decoration: BoxDecoration(
+                  color: Color(0xFFFFFFFF),
+                  borderRadius: BorderRadius.circular(29))),
+          Container(
+            height: 44,
+            width: 44,
+            child: Image(image: AssetImage(image)),
+          ),
+          Positioned(
+            top: 65,
+            child: Text(name,
+                style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white)),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class BuildNonActiveMenu extends StatelessWidget {
+  const BuildNonActiveMenu({
+    Key? key,
+    required this.image,
+    required this.name,
+  }) : super(key: key);
+  final String image, name;
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: () {},
+      child: Stack(
+        alignment: Alignment(0, -.7),
+        children: <Widget>[
+          Container(
+            height: 103,
+            width: 67,
+            decoration: BoxDecoration(
+                color: Color(0xFFFFFFFF),
+                borderRadius: BorderRadius.circular(29),
+                boxShadow: [
+                  BoxShadow(
+                      color: Color(0x1A000000),
+                      blurRadius: 50,
+                      offset: Offset(4, 8))
+                ]),
+          ),
+          Container(
+              height: 57,
+              width: 57,
+              decoration: BoxDecoration(
+                  color: Color(0xFFFFFFFF),
+                  borderRadius: BorderRadius.circular(29))),
+          Container(
+            height: 44,
+            width: 44,
+            child: Image(image: AssetImage(image)),
+          ),
+          Positioned(
+            top: 65,
+            child: Text(name,
+                style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black)),
           )
         ],
       ),
