@@ -14,9 +14,24 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Satsadon App',
       theme: ThemeData(
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+        hoverColor: Colors.transparent,
         scaffoldBackgroundColor: kBackgroubClor,
         primaryColor: kPrimaryColor,
-        textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor, fontFamily: 'SukhumvitSet'),
+        buttonTheme: ButtonThemeData(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+          hoverColor: Colors.transparent,
+        ),
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            splashFactory: NoSplash.splashFactory,
+          ),
+        ),
+        textTheme: Theme.of(context)
+            .textTheme
+            .apply(bodyColor: kTextColor, fontFamily: 'SukhumvitSet'),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: HomeScreen(),
